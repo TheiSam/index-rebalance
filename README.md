@@ -1,11 +1,11 @@
-__Index Fund Rebalancing Simulator__
+## __Index Fund Rebalancing Simulator__
 This project simulates index fund rebalancing using mock company market cap and price data across two different dates.
 
-__Prerequisites__
+## __Prerequisites__
 Install the required modules using:
 ``pip3 install -r requirements.txt``
 
-__Usage__
+## __Usage__
 Run the script with:
 ``python3 src/index_rebalance.py``
 
@@ -17,11 +17,11 @@ The script outputs the following results as CSV files:
 - Equities bought during rebalancing
 - Equities sold during rebalancing
 
-__Testing__
+## __Testing__
 Run the unit tests with:
 ``pytest tests/``
 
-__Code Overview__
+## __Code Overview__
 * `src/helpers.py` -> functions for loading data, calculating weights, merging datasets.
 * `src/index_rebalance.py` -> runs the end-to-end rebalance process which:
     1) Loads input data
@@ -29,7 +29,7 @@ __Code Overview__
     3) Identify buy/sell actions
     4) Save results
 
-__Suggestions for Future Improvements__
+## __Suggestions for Future Improvements__
 
 1) Code Improvements
     * Add more unit tests for edge cases (e.g. missing data, negative prices, duplicates).
