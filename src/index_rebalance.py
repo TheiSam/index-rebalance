@@ -40,15 +40,15 @@ cols_to_save_portfolio = ["date", "company", "market_cap_m", "price", "dollars_a
 initial_portfolio[cols_to_save_portfolio].to_csv(os.path.join(results_dir, "initial_portfolio.csv"), index=False)
 new_portfolio[cols_to_save_portfolio].to_csv(os.path.join(results_dir, "new_portfolio.csv"), index=False)
 
-cols_to_save_bought = ["company", "num_shares_new", "price_new"]
+cols_to_save_bought = ["company", "num_shares_new", "price_new", "buy_value"]
 equities_bought = equities_bought[cols_to_save_bought].rename(
     columns={"price_new": "price", "num_shares_new": "num_shares"}
 )
 equities_bought.to_csv(os.path.join(results_dir, "equities_bought.csv"), index=False)
 
-cols_to_save_sold = ["company", "num_shares_old", "price_new", "current_value"]
+cols_to_save_sold = ["company", "num_shares_old", "price_new", "sell_value"]
 equities_sold = equities_sold[cols_to_save_sold].rename(
-    columns={"price_new": "price", "num_shares_old": "num_shares", "current_value": "total_value"}
+    columns={"price_new": "price", "num_shares_old": "num_shares"}
 )
 equities_sold.to_csv(os.path.join(results_dir, "equities_sold.csv"), index=False)
 

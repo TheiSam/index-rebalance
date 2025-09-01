@@ -69,7 +69,10 @@ def rebalance_portfolio(old_portfolio, new_portfolio, new_universe):
     # Stock was not in old portfolio but in new portfolio -> buy
     status_df.loc[status_df["num_shares_old"].isna() & status_df["num_shares_new"].notna(), "status"] = "buy"
     
-    # Calculate the current value of old holdings
-    status_df["current_value"] = status_df["num_shares_old"].fillna(0) * status_df["price_new"].fillna(0)
+    # Calculate the current value of old holdings (relevant for sells)
+    status_df["sell_value"] = status_df["num_shares_old"].fillna(0) * status_df["price_new"].fillna(0)
+
+    # Calculate the buy value of new holdings bought (relevant for buys)
+    status_df["buy_value"] = status_df["num_shares_new"].fillna(0) * status_df["price_new"].fillna(0)
     
     return status_df
